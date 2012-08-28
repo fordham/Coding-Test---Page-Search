@@ -1,7 +1,7 @@
-
-require 'lib/page'
-require 'lib/query'
-require 'lib/match'
+$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
+require 'page'
+require 'query'
+require 'match'
 
 $my_pages = Array.new   #new page object array
 $my_queries = Array.new   #new query object array
