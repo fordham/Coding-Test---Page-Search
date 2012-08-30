@@ -48,6 +48,9 @@ class Match
    return top_five_pages
    
  end
+ 
+ public
+ 
  def self.display_matches(my_queries, my_pages)
    # find page matches for each query and display
    matches_found_arr = Array.new
