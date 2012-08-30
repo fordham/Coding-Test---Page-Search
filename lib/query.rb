@@ -1,3 +1,5 @@
+require 'query_DA'
+
 class Query
   
   def initialize(my_query_id, my_query_keywords)
@@ -8,4 +10,7 @@ class Query
   attr :id, true
   attr :keywords, true
 
+  def self.initialize_queries
+    return queries = Query_DA.initialize_queries
+  end
 end

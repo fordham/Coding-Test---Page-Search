@@ -1,3 +1,5 @@
+require 'page_DA'
+
 class Page
   
  MAX_NUM_KEYWORDS = 8
@@ -35,5 +37,8 @@ class Page
     end
   end
   
+  def self.initialize_pages
+     return pages = Page_DA.initialize_pages
+  end
 end
   
