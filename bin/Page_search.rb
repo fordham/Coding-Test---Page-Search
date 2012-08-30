@@ -3,9 +3,14 @@ require 'page'
 require 'query'
 require 'match'
 
-# get all page and query data 
-my_pages = Page.initialize_pages
-my_queries = Query.initialize_queries
+# access data source and create and store page/query objects in arrays
+Page.initialize_pages
+Query.initialize_queries
+
+# get all pages and queries
+my_pages = Page.get_all
+my_queries = Query.get_all
+
 # Display all matches
 Match.display_matches(my_queries, my_pages)
 

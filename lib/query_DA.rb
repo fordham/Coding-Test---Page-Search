@@ -2,9 +2,11 @@
 class Query_DA
   
   FILE_PATH = "data/test_input_data.txt"
-  #method returns array of query objects retrieved from a text file
+  @@my_queries =[]    # class variable array containing list of query objects
+  
+  #method creates array of query objects retrieved from a text file
   def self.initialize_queries
-    my_queries = []
+    
     query_count = 0
 
     File.open(FILE_PATH, "r") do |my_file|
@@ -20,14 +22,17 @@ class Query_DA
           # create new query and add to queries collection
           query_id = 'Q' + query_count.to_s
           my_query = Query.new(query_id, my_query_keywords_arr)
-          my_queries << my_query
+          @@my_queries << my_query
         end      
       end
     end
     puts ''
     puts "Number of queries found = #{query_count}"
     puts "\n"
-    return my_queries
+    
   end
 
+  def self.get_all
+    return @@my_queries
+  end
 end

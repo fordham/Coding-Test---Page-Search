@@ -11,6 +11,10 @@ class Query
   attr :keywords, true
 
   def self.initialize_queries
-    return queries = Query_DA.initialize_queries
+    Query_DA.initialize_queries
+  end
+  
+  def self.get_all
+    return queries = Query_DA.get_all
   end
 end

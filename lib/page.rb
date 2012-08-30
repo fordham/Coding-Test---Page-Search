@@ -38,7 +38,11 @@ class Page
   end
   
   def self.initialize_pages
-     return pages = Page_DA.initialize_pages
+    Page_DA.initialize_pages
+  end
+  
+  def self.get_all
+    return pages = Page_DA.get_all
   end
 end
   

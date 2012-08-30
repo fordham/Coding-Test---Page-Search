@@ -1,9 +1,11 @@
 # class Page_DA is used to perform the data access functions for the Page class
 class Page_DA
    FILE_PATH = "data/test_input_data.txt"
-   #method returns array of page objects retrieved from a text file
+   @@my_pages = []    # class variable array containing list of page objects
+   
+   #method creates array of page objects retrieved from a text file
    def self.initialize_pages
-     my_pages = []
+    
      page_count = 0
 
      File.open(FILE_PATH, "r") do |my_file|
@@ -19,14 +21,17 @@ class Page_DA
            # create new page and add to pages collection
            page_name = 'P' + page_count.to_s
            my_page = Page.new(page_name, my_page_keywords_arr)
-           my_pages << my_page
+           @@my_pages << my_page
          end      
        end
      end
       puts ''
       puts "Number of page records found = #{page_count}"
       puts "\n"
-      return my_pages
+     
    end
   
+  def self.get_all
+    return @@my_pages
+  end
 end
