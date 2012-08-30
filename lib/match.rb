@@ -4,7 +4,6 @@ class Match
   # pre-condition: receives query and pages #
   # post-condition: returns array of top 5 pages matched to query, ordered from most to least relevant
   def Match.find_matches(my_query, my_pages)
-    #TODO
     # set rating for each page
     
     my_pages.each do |page|
@@ -49,5 +48,22 @@ class Match
    return top_five_pages
    
  end
- 
+ def self.display_matches(my_queries, my_pages)
+   # find page matches for each query and display
+   matches_found_arr = Array.new
+   puts 'MATCHES OUTPUT:'
+   my_queries.each do |query|
+     match_result_str = query.id + ':'
+     matches_found_arr = Match.find_matches(query, my_pages) #returns ordered list of matched pages array
+     matches_found_arr.each do |page|
+     match_result_str << ' ' + page.name
+     end
+     puts match_result_str
+     match_result_str = ''
+
+   end
+   puts "\n"
+   puts 'end of output'
+   
+ end
 end
